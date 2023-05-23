@@ -1,18 +1,17 @@
-package proskyjavacourse2.Controller;
+package proskyjavacourse2.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import proskyjavacourse2.Service.FirstService;
+import proskyjavacourse2.service.CalculatorService;
 
 @RestController
 @RequestMapping("/calculator")
-public class FirstController {
+public class CalculatorController {
 
-    private final FirstService firstService;
+    private final CalculatorService firstService;
 
-    public FirstController(FirstService firstService) {
+    public CalculatorController(CalculatorService firstService) {
         this.firstService = firstService;
     }
 
@@ -22,24 +21,25 @@ public class FirstController {
     }
 
     @GetMapping("/plus")
-    public String calcSum(@RequestParam String num1, String num2) {
+    public String calcSum(int num1, int num2) {
         return firstService.getSum(num1, num2);
     }
 
 
     @GetMapping("/minus")
-    public String calcSub(@RequestParam String num1, String num2) {
+    public String calcSub(int num1, int num2) {
         return firstService.getSubtraction(num1, num2);
     }
 
 
     @GetMapping("/multiply")
-    public String calcMul(@RequestParam String num1, String num2) {
+    public String calcMul(int num1, int num2) {
         return firstService.getMultiplication(num1, num2);
     }
 
     @GetMapping("/divide")
-    public String calcDiv(@RequestParam String num1, String num2) {
+    public String calcDiv(double num1, double num2) {
         return firstService.getDivision(num1, num2);
     }
+
 }
