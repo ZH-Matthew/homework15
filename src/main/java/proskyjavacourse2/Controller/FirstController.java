@@ -42,4 +42,5 @@ public class FirstController {
     public String calcDiv(@RequestParam String num1, String num2) {
         return firstService.getDivision(num1, num2);
     }
+
 }
